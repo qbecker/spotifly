@@ -1,6 +1,7 @@
 var mongodb = require('mongodb');
 var MongoClient = mongodb.MongoClient;
 var mongoose = require('mongoose');
+mongoose.Promise = require('bluebird');
 //DBURL
 var url = 'mongodb://qbecker-spotifly-3880413:27017/my_database_name';
 

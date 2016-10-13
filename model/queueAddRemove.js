@@ -30,14 +30,16 @@ function checkDB(queueName, callback){
 //create new queue
 function createQueue(queueName){
     var db = mongoose.createConnection(url);
+    var queue = db.model('queue',{Name: String, songList: Array});
     var newQueue = new queue({Name: queueName, songList: []});
-    console.log(newQueue);
+    
     newQueue.save(function(err, queue){
         if(err){
             console.log(err);
         }
+        console.log(newQueue);
         console.log('new Queue added' + queueName);
-        db.disconnect();
+        db.close();
     });
     
         
