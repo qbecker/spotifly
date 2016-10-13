@@ -1,13 +1,13 @@
 var express = require('express');
 var router = express.Router();
-var qm = require('../model/queueAddRemove');
+var gs = require('../model/getSongs');
 
 
 router.get('/:queueName',function(req, res){
-    console.log("MATCHED addqueue");
+    console.log("MATCHED getSongs");
     console.log(req.params.queueName);
-    qm.checkDB(req.params.queueName,function(response){
-        res.send(response);
+    gs.getSongs(req.params.queueName, function(songList){
+        res.send(songList);
     });
 });
 

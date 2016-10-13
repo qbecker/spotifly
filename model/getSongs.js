@@ -4,7 +4,8 @@ var mongoose = require('mongoose');
 //DBURL
 var url = 'mongodb://qbecker-spotifly-3880413:27017/my_database_name';
 
-function addItem(queueName,item, callback){
+
+function getSongs(queueName, callback){
     var db = mongoose.createConnection(url);
     var queue = db.model('queue',{Name: String, songList: Array});
     queue.findOne({Name: queueName}, function(err, queue){
@@ -12,19 +13,14 @@ function addItem(queueName,item, callback){
             console.log(err);
         }
         else if(queue){
-            queue.songList.push(item);
-            queue.save(function(err){
-                if(err){
-                    console.log(err);
-                }
-                callback("Updated" + queue);
-                db.close();
-            });
+            callback(queue.songList);
+            db.close();
         }else{
-            callback("Queue not found");
+            callback("Sorry queue not found");
             db.close();
         }
     });
 }
 
-module.exports.addItem = addItem;
+
+module.exports.getSongs = getSongs;
