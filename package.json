@@ -1,0 +1,28 @@
+{
+  "name": "spotifly",
+  "version": "1.0.0",
+  "description": "A much needed feature for spotify",
+  "main": "server.js",
+  "dependencies": {
+    "bluebird": "^3.4.6",
+    "express": "^4.14.0",
+    "express-router": "^0.0.1",
+    "mongodb": "^2.2.10",
+    "mongoose": "^4.6.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qbecker/spotifly.git"
+  },
+  "author": "Quinten Becker",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/qbecker/spotifly/issues"
+  },
+  "homepage": "https://github.com/qbecker/spotifly#readme"
+}
