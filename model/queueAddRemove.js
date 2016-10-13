@@ -12,9 +12,7 @@ var queue = mongoose.model('queue',{Name: String, songList: Array});
 function checkDB(queueName, callback){
    var db =  mongoose.createConnection(url);
    var queue = db.model('queue',{Name: String, songList: Array});
-   console.log("15");
     queue.findOne({Name: queueName}, function(err, queue){
-        console.log("17");
         if(err){
             console.log(err);
         }else if(queue){
