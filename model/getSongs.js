@@ -3,8 +3,6 @@ var MongoClient = mongodb.MongoClient;
 var mongoose = require('mongoose');
 //DBURL
 var url = 'mongodb://qbecker-spotifly-3880413:27017/my_database_name';
-
-
 function getSongs(queueName, callback){
     var db = mongoose.createConnection(url);
     var queue = db.model('queue',{Name: String, songList: Array});
@@ -21,6 +19,4 @@ function getSongs(queueName, callback){
         }
     });
 }
-
-
 module.exports.getSongs = getSongs;
