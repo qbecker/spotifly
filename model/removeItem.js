@@ -1,13 +1,7 @@
-var mongodb = require('mongodb');
-var mongoose = require('mongoose');
-var MongoClient = mongodb.MongoClient;
-//dburl
-var url = 'mongodb://qbecker-spotifly-3880413:27017/my_database_name';
+var queue = require('../model/models');
 
 
 function removeItem(queueName, item, callback){
-    var db =  mongoose.createConnection(url);
-    var queue = db.model('queue',{Name: String, songList: Array});
     queue.findOne({Name: queueName},function(err, queue){
         if(err){
             console.log(err);
@@ -22,12 +16,10 @@ function removeItem(queueName, item, callback){
                     console.log(err);
                 }
                 callback(queue);
-                db.close();
             });
             
         }else{
             callback("Queue not found!");
-            db.close();
         }
     });
 }
