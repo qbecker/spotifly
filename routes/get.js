@@ -7,6 +7,7 @@ router.get('/:queueName',function(req, res){
     console.log("MATCHED getSongs");
     console.log(req.params.queueName);
     gs.getSongs(req.params.queueName, function(songList){
+        res.setHeader('Content-Type', 'application/json');
         res.send(songList);
     });
 });

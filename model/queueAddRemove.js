@@ -6,10 +6,12 @@ function checkDB(queueName, callback){
         if(err){
             console.log(err);
         }else if(queue){
-            callback("Sorry that queue already exists");
+            var response = {"response": "N"};
+            callback(response);
         }else{
             createQueue(queueName);
-            callback("New queue created: " + queueName);
+            var response = {"response": "Y"};
+            callback(response);
         }
     });
 }
