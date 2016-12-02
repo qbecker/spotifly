@@ -7,7 +7,8 @@ function removeItem(queueName, item, callback){
             console.log(err);
         }else if(queue){
             for(var i = queue.songList.length -1; i >= 0; i--){
-                if(queue.songList[i] === item){
+                console.log(queue.songList[i]);
+                if(queue.songList[i].link === item){
                     queue.songList.splice(i, 1);
                 }
             }
@@ -15,11 +16,12 @@ function removeItem(queueName, item, callback){
                 if(err){
                     console.log(err);
                 }
-                callback(queue);
+                 var response = [{"response": "Y"}];
+                callback(response);
             });
-            
         }else{
-            callback("Queue not found!");
+             var response = [{"response": "Y"}];
+            callback(response);
         }
     });
 }

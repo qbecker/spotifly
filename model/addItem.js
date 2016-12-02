@@ -26,10 +26,7 @@ function addItem(queueName,item, callback){
 
 function getSongInfo(song, callback){
     var n = song.lastIndexOf("/");
-    console.log(n);
     var songPath = "/v1/tracks/" + song;
-    console.log(songPath);
-    console.log(song);
       return http.get({
         host: 'api.spotify.com',
         path: songPath
